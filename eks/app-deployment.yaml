@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "app"
+  namespace: "link-shorter"
+spec:
+  selector:
+    matchLabels:
+      app: "app"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "app"
+    spec:
+      containers:
+      - image: 181366741066.dkr.ecr.ap-southeast-1.amazonaws.com/workshop:app 
+        imagePullPolicy: Always
+        name: "app"
+        ports:
+        - containerPort: 8080
